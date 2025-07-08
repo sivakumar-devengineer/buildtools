@@ -1,0 +1,81 @@
+1)
+Maven is a build automation and dependency management tool used primarily for Java projects. It simplifies the process of building, testing, packaging, and managing dependencies in software development.
+
+    Maven uses a pom.xml (Project Object Model) file to define:
+    Project name and version
+    Dependencies
+    Build instructions
+    Plugins
+    Repositories
+
+    Standard Maven Project Structure
+    ----------------------------------
+    my-project/
+    ├── pom.xml
+    └── src/
+        ├── main/
+        │   └── java/
+        │       └── com/example/YourApp.java
+        └── test/
+        └── java/
+            └── com/example/YourAppTest.java
+2)pom.xml
+    pom.xml is a core configuration file used in Maven, which is a build automation and dependency management tool primarily used for Java projects.
+    This file tells Maven everything it needs to know about the project:
+
+    application.properties	--> Spring Boot	--> App configuration (port, DB, logging)
+
+    sonar-project.properties	--> SonarQube	--> Static analysis config
+
+    .env	--> Many (Node.js, Python) for local or dev 	--> Environment variables (secrets, configs)
+
+3)
+Summary: DevOps Involvement in pom.xml
+-------------------------------------
+    Build Automation --> Ensure builds work in CI/CD -->	Surefire, Failsafe plugins
+
+    Code Quality & Analysis	--> Integrate SonarQube, Checkstyle	--> sonar-maven-plugin
+
+    Artifact Management --> 	Publish artifacts to repositories	--> distributionManagement section
+
+    Environment Configs	--> Handle different deploy profiles	--> <profiles> section
+
+    Security	--> Scan for vulnerabilities	--> OWASP Dependency Check plugin
+
+    Containerization Support	--> Enable Docker build via Maven	--> Spotify or Jib Docker plugins
+4)
+Maven Lifecycle: Overview
+------------------------
+    There are three built-in lifecycles in Maven:
+
+    Lifecycle	Purpose
+    default	    Handles project build (most commonly used)
+    clean	    Cleans up artifacts from previous builds
+    site	    Generates project documentation
+
+    The default Build Lifecycle Phases
+    --------------------------------
+    This is the core lifecycle for building a Java application.
+
+    1) validate	-> Validates project structure and configuration
+    2) compile	--> Compiles source code	--> target/classes/ with compiled .class files	
+    3) test	--> Runs unit tests (in src/test/java)	--> Test reports (target/surefire-reports)
+    4) package	--> Packages compiled code (e.g., .jar, .war) --> 	target/myapp.jar or target/myapp.war
+    5) verify	--> Runs checks (e.g., integration tests, quality gates)	--> Reports, test output, quality analysis results
+    6) install	--> Installs package into local Maven repo	--> Added to ~/.m2/repository
+    7) deploy	--> Deploys final artifact to remote repo (CI/CD)	--> Remote storage (e.g., Nexus/Artifactory)
+
+
+    Plugins and Goals
+    ------------------
+    Each phase executes plugin goals. Example:
+
+    maven-compiler-plugin for compile
+    maven-surefire-plugin for test
+    maven-jar-plugin or maven-war-plugin for package
+
+    You can also run individual phases or goals:
+    ----------------
+    mvn clean
+    mvn compile
+    mvn surefire-report:report
