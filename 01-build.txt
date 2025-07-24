@@ -79,3 +79,58 @@ Maven Lifecycle: Overview
     mvn clean
     mvn compile
     mvn surefire-report:report
+
+
+    JaCoCo (Java Code Coverage) is a code coverage library for Java, and it’s often used in Maven projects to measure how much of your code is executed during tests (especially when you run mvn test).
+    JaCoCo is commonly used in CI pipelines to:
+        Enforce test coverage thresholds
+        Integrate with SonarQube for quality gates
+        Help teams identify untested code
+
+
+5) to avoid any specific phase in mvn lifecycle:
+--------------------------------------
+    $ mvn package -DskipTests=true
+        This flag tells Maven to skip running the tests, but still compile them.
+
+
+6) java application build 
+  Github:  https://github.com/jaiswaladi246/Multi-Tier-With-Database.git
+
+  from  main brnach need to build:
+  1) install mysql db server which works on 3306 port  for java application 
+    $ sudo yum install mysql-server -y 
+    
+  2)once db installed need to set password for root user and create new schema for our application
+    $ mysql
+
+    $ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+    
+    $ FLUSH PRIVILEGES;
+
+    $ EXIT;
+    
+    to login again with new password
+    $ mysql -u root -p
+
+    Now create schema/db for our applocation
+    $ CREATE DATABASE bankappdb;
+    $ show databases;
+    $ EXIT
+  3) now build the pacakage 
+   $ mvn pacakage 
+
+  4) now run the jar from target folder
+    $ java -jar <name>.jar 
+    it will automatically connects to DB as DB properties are alreday mentioned in application.properties 
+  5) verify the application is connecting to DB
+    $ mysql -u root -p 
+    $ show databases;
+    $ use <database_name>;
+    $ show tables;
+    $ select * from <table_name>;
+
+    after adding some data to application from UI, check again tables whether data is added or    not 
+
+    $ exit; 
+    
