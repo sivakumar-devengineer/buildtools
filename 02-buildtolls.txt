@@ -1,0 +1,73 @@
+.NET APP:
+==========
+1)
+.NET is a free, open-source platform by Microsoft used to build applications like:
+    Websites, Desktop apps, Mobile apps, Games, Cloud services
+
+2)
+In .NET, the main tool used for build  is the dotnet command-line tool.
+
+3)
+Step-by-Step Guide from Scratch
+    a)
+    Install .NET SDK
+    download and install the .NET SDK (Software Development Kit)
+
+    b)
+    Open a Terminal or Command Prompt
+        If you're using Windows:
+        Press Windows + R, type cmd, and hit Enter.
+    c)
+    Create a New Project
+    $ dotnet new console -n MyFirstApp
+    What this does:
+        dotnet new = creates a new project
+        console = type of app (a simple text-based app)
+        -n MyFirstApp = project name is "MyFirstApp"
+
+    d)
+    after entering into folder MyFirstApp
+    Understand the Files
+    When you run dotnet new, it creates:
+    
+    File/Folder	         What It Does
+    Program.cs	 -->     This is the main code file. It has C# code that runs your app.
+    MyFirstApp.csproj -->	This file describes your project (kind of like a recipe).
+    obj/ and bin/ folders -->	These will be created when you build.
+
+    e)
+    Run the App Without Building
+    $ dotnet run
+        This command compiles and runs your app at the same time.
+
+    $ dotnet build
+        To only build (without running):
+    What happens now:
+        .NET reads the .csproj file (your project info).
+        It finds and compiles the code in Program.cs.
+        It creates output files in the bin/Debug/net8.0/ folder.
+
+    f)
+    Where is the Output?
+    Go to:
+        MyFirstApp/bin/Debug/net8.0/
+
+        MyFirstApp.dll ← this is the main compiled app
+        $ dotnet MyFirstApp.dll
+
+    g)dotnet restore
+        The restore step usually happens automatically when  runs 
+        dotnet build or dotnet run 
+
+4)
+A solution file is a file with the extension .sln that:
+✅ Organizes
+✅ Connects
+✅ Manages
+
+…multiple projects in a .NET workspace.
+
+5) diff b/w .dll and .exe 
+File Type	Stands For	What It Does
+.exe -->	Executable File	--> Runs as a program (you can double-click it)
+.dll --> 	Dynamic Link Library -->	Cannot run by itself — used by other programs
