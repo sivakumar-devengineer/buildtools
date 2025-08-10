@@ -1,0 +1,45 @@
+donet 3 tier project:
+========================
+=========================
+1)
+appsettings.json
+    In .NET (specifically .NET Core and later), appsettings.json is a configuration file that stores application settings in a structured, JSON-based format.
+
+    It’s the modern replacement for the old web.config and app.config files from .NET Framework.
+    
+    Purpose:
+    ------------
+    Central place to store configuration values (database connections, API keys, feature flags, logging settings, etc.).
+
+In MongoDB, a collection is essentially the equivalent of a table in a relational database — but more flexible.
+
+2)
+    program.cs (or) startup.cs 
+        This is the main code file.
+    MyFirstApp.csproj -->	This file describes your project
+
+Building multi-tier project
+---------------------------
+1)
+    clone the project
+    install donet jdk and donet run time 
+    install MongoDB 
+    install mongodb shell to access mongodb database  
+
+2)
+    to interact mongodb 
+        $ mongosh
+        $ show databases;
+        $ use db_name;
+        $ show collections;
+
+        to check the conent of collections
+        $ db.<collections_name>.find().pretty();
+3)
+    cd to the project inside where  "appsettings.json" and "MyFirstApp.csproj" file presents 
+
+    $ dotnet restore --> download dependencies 
+    $ donet build 
+    $ donet run --> starts app. 
+
+

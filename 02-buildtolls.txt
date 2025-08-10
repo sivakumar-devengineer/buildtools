@@ -71,3 +71,100 @@ A solution file is a file with the extension .sln that:
 File Type	Stands For	What It Does
 .exe -->	Executable File	--> Runs as a program (you can double-click it)
 .dll --> 	Dynamic Link Library -->	Cannot run by itself — used by other programs
+
+Java Projects:
+==============
+pom.xml is build automation tool , which contains meta data like dependencies, plugins and a liitle bit of configurations where devops involves.
+    ex: artifacts publish under  distributions management
+
+    A multi-module project lets you group several related Maven projects into a single logical structure.
+    You typically have:
+    Parent Project(pom.xml, which contains modules details) → Holds the common configuration & dependency management.
+
+    Child Modules(pom.xml contains about preant pom.xml) → Each is its own Maven project, but inherits config from the parent.
+
+Nodejs:
+=========
+In nodejs and python there will be no direct executable files like java and donet, here we have "source files + node_modules" for NodeJS, "source files only" for Python.
+
+npm is package manager for nodejs,
+main files in nodejs are 
+    a)package.json -> whcih contains scripts, dependencies..
+    b)server.mjs --> this is like entry point
+
+1)
+Common Node.js Build Tools
+===========================
+Here’s the short list of major players and what they do:
+ 
+
+    Tool	-->    Role
+    a)npm  scripts -->  The simplest “build tool” — run commands in package.json via npm run.
+
+    b)Gulp  -->   Task runner — runs steps like copying files, minifying CSS, compiling Sass.
+
+    c)Grunt	-->    Older task runner (less popular now).
+
+    d)Webpack -->	Module bundler — processes JS, CSS, images into optimized bundles.
+
+    e)Rollup -->	Bundler focused on libraries — tree-shaking, small output.
+
+    f)Parcel --> 	Zero-config bundler — automatically handles JS, CSS, HTML.
+
+    g)esbuild -->	Very fast JS/TS bundler & minifier (written in Go).
+
+    h)Vite	--> Development server + build tool, very fast (uses esbuild under the hood).
+
+    i)Babel	--> Transpiler for new JS/TS syntax → older browser-compatible JS.
+
+Task Runners (Gulp, npm scripts) → run any command or sequence of commands.
+
+Bundlers (Webpack, Rollup, Parcel, Vite) → package up all your code and assets.
+
+Transpilers (Babel, TypeScript compiler) → convert syntax to compatible formats.
+
+Often, these tools are combined in real projects.
+
+2)
+    a)clone from git hub
+    b)download nodejs usng nvm
+    c)cd to the project where package.json is located
+    d)npm install --> generates node_modules folder 
+    e)npm start , npm test , 
+
+
+Python
+==============
+==============
+requirements.txt is the metadata file 
+pip --> packamage manager,
+    pip install -r requirements.txt
+        -r → Short for requirements file — tells pip to read package names from a file instead of typing them in one by one.
+        requirements.txt → A text file listing dependencies, usually one per line.
+    to run test cases --> frame work is
+        $  pytest test/
+run.py --> main entry point for the application
+    actual source code stores under "app" dir.
+
+
+A virtual environment in Python is like a self-contained workspace for your project — it keeps its own copy of Python and all the packages you install, separate from the system-wide Python.
+
+Creating and Using a Virtual Environment
+    python -m venv venv
+    source venv/bin/activate
+
+    1)
+    clone the projrct from git
+    cd to folder where requiremets.txt present 
+
+    2) -> install virtual environment and run following commands:
+    python -m venv venv
+    source venv/bin/activate
+
+    pip install -r requirements.txt
+
+    python  run.py 
+    3)
+    to run test cases 
+        $ pytest app/tests/ 
+
